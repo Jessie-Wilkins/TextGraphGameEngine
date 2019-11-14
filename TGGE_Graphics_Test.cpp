@@ -2,7 +2,7 @@
 #include <iostream>
 TEST_CASE("TGGE_Graphics_Test") {
     
-    SECTION(""){
+    SECTION("Test_Name"){
 
         
         REQUIRE();
