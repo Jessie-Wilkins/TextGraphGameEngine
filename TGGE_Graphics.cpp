@@ -5,7 +5,13 @@ string TGGE_Graphics::generateLetter(char letter, int horizontal_location, int v
     string str_graph = present_string;
 
     if(str_graph != "") {
-        str_graph += "b";
+        if(vertical_location == 2) {
+            str_graph += "\n    b";
+        }
+        else {
+            str_graph += "b";
+        }
+
     }
 
     else {

@@ -23,12 +23,30 @@ TEST_CASE("TGGE_Graphics_Test") {
         REQUIRE(str_print=="\n    a");
     }
 
-    SECTION("Test If Multiple Letters Can Be Generated On Same String On Same Line") {
+    SECTION("Test If Another Letter Can Be Appended On Same String On Same Line") {
         str_print = graph.generateLetter('a', 4, 1, "");
         
         str_print = graph.generateLetter('b', 5, 1, str_print);
 
         REQUIRE(str_print=="\n    ab");
+    }
+
+    SECTION("Test If Another Letter Can Be Generated On Same String on the Next Line") {
+        str_print = graph.generateLetter('a', 4, 1, "");
+        
+        str_print = graph.generateLetter('b', 5, 1, str_print);
+        
+        str_print = graph.generateLetter('b', 4, 2, str_print);
+
+        REQUIRE(str_print=="\n    ab\n    b");
+    }
+
+    SECTION("Test If Another Letter Can Be Inserted On Same String on Same Line") {
+         str_print = graph.generateLetter('a', 4, 1, "");
+        
+        str_print = graph.generateLetter('b', 5, 1, str_print);
+
+        REQUIRE(str_print=="\n  b  ab");
     }
 
 }
