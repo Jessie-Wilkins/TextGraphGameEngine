@@ -9,7 +9,7 @@ string TGGE_Graphics::generateLetter(char letter, int horizontal_location, int v
             str_graph += "\n    b";
         }
         else {
-            str_graph += "b";
+            str_graph.insert(horizontal_location+vertical_location,"b");
         }
 
     }

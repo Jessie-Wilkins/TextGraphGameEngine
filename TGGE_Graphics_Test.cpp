@@ -41,12 +41,30 @@ TEST_CASE("TGGE_Graphics_Test") {
         REQUIRE(str_print=="\n    ab\n    b");
     }
 
-    SECTION("Test If Another Letter Can Be Inserted On Same String on Same Line") {
-         str_print = graph.generateLetter('a', 4, 1, "");
+    SECTION("Test If Another Letter Can Be Inserted Before Existing Characters On Same String on Same Line") {
+        str_print = graph.generateLetter('a', 4, 1, "");
         
         str_print = graph.generateLetter('b', 5, 1, str_print);
 
-        REQUIRE(str_print=="\n  b  ab");
+        str_print = graph.generateLetter('b', 4, 2, str_print);
+
+        str_print = graph.generateLetter('b', 2, 1, str_print);
+
+        REQUIRE(str_print=="\n  b  ab\n    b");
+    }
+
+    SECTION("Test If Another Letter Can Be Inserted In Between Characters on Another Line") {
+        str_print = graph.generateLetter('a', 4, 1, "");
+        
+        str_print = graph.generateLetter('b', 5, 1, str_print);
+
+        str_print = graph.generateLetter('b', 4, 2, str_print);
+
+        str_print = graph.generateLetter('b', 2, 1, str_print);
+
+        str_print = graph.generateLetter('c', 2, 2, str_print);
+
+        REQUIRE(str_print=="\n  b  ab\n  c  b");
     }
 
 }
