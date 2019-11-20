@@ -3,10 +3,29 @@
 
 string TGGE_Graphics::generateLetter(char letter, int horizontal_location, int vertical_location, string present_string) {
     string str_graph = present_string;
-
+    int location_of_line_break;
     if(str_graph != "") {
         if(vertical_location == 2) {
-            str_graph += "\n    b";
+            int j = 0;
+            for(location_of_line_break = 0; location_of_line_break<str_graph.length(); location_of_line_break++) {
+                if(str_graph.at(location_of_line_break) == '\n') {
+                    j++;
+                    if (j==vertical_location) {
+                        break;
+                    }
+                }
+            }
+            if(j!=vertical_location) {
+                str_graph += "\n";
+                for(int i = 0; i <horizontal_location; i++) {
+                    str_graph+=" ";
+                }
+                str_graph+=string(1,letter);
+            }
+            else {
+                str_graph.insert(location_of_line_break+1+horizontal_location,string(1,letter));
+            }
+            
         }
         else {
             str_graph.insert(horizontal_location+vertical_location,"b");
