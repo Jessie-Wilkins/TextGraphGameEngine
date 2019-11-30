@@ -10,6 +10,10 @@ class TGGE_Graphics {
     private:
         string addExtraLines(string str_graph, int vertical_location);
         string addExtraSpaces(string str_graph, int horizontal_location);
+        int findLocationOfLastLineBreak(int& j, string str_graph, int location_of_line_break, int vertical_location);
+        string insertCharactersIntoString(int j, string str_graph, int location_of_line_break, int vertical_location, int horizontal_location, char letter);
+        string adjustCurrentStringGraphics(string str_graph, int location_of_line_break, int vertical_location, int horizontal_location, char letter);
+        string addNewStringGraphics(string str_graph, int vertical_location, int horizontal_location, char letter);
 };
 
 #endif
