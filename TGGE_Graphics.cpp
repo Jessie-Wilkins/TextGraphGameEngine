@@ -18,6 +18,10 @@ string TGGE_Graphics::generateLetter(char letter, int horizontal_location, int v
     return str_graph;
 }
 
+string TGGE_Graphics::addNewLineAfterSpecifiedLine(int line_number, string present_string) {
+    
+}
+
 string TGGE_Graphics::addExtraLines(string str_graph, int vertical_location) {
     for(int i = 0; i<vertical_location; i++) {
             str_graph =str_graph+"\n";
