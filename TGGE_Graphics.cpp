@@ -62,7 +62,7 @@ string TGGE_Graphics::adjustCurrentStringGraphics(string str_graph, int location
             int j = 0;
             location_of_line_break = findLocationOfLastLineBreak(j, str_graph, location_of_line_break, vertical_location);
             str_graph = insertCharactersIntoString(j, str_graph, location_of_line_break, vertical_location, horizontal_location, letter);
-        }
+    }
     else {
         str_graph.insert(horizontal_location+vertical_location,"b");
     }
