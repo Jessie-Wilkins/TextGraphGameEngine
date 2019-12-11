@@ -19,7 +19,24 @@ string TGGE_Graphics::generateLetter(char letter, int horizontal_location, int v
 }
 
 string TGGE_Graphics::addNewLineAfterSpecifiedLine(int line_number, string present_string) {
-    
+    int line_number_presently = 0;
+    string part_string1 = "";
+    int char_number = 0;
+    for(int i = 0; i<present_string.length(); i++) {
+        if(present_string.at(i) == '\n') {
+            line_number_presently++;
+           
+        }
+        if(line_number_presently == line_number) {
+            cout<<present_string<<endl;
+            part_string1 = present_string.substr(0,i);
+            part_string1+="\n";
+            present_string = part_string1+present_string.substr(i, present_string.length()-1);
+            cout<<present_string<<endl;
+            break;
+        }
+    }
+    return present_string;
 }
 
 string TGGE_Graphics::addExtraLines(string str_graph, int vertical_location) {
