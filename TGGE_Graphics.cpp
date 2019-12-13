@@ -28,11 +28,9 @@ string TGGE_Graphics::addNewLineAfterSpecifiedLine(int line_number, string prese
            
         }
         if(line_number_presently == line_number) {
-            cout<<present_string<<endl;
             part_string1 = present_string.substr(0,i);
             part_string1+="\n";
             present_string = part_string1+present_string.substr(i, present_string.length()-1);
-            cout<<present_string<<endl;
             break;
         }
     }
@@ -72,7 +70,19 @@ string TGGE_Graphics::insertCharactersIntoString(int j, string str_graph, int lo
         }
         str_graph+=string(1,letter);
     }
+
     else {
+        int next_line_break = 0;
+        int next_vertical_location = vertical_location+1;
+        int next_location_of_line_break = 0;
+        next_location_of_line_break = findLocationOfLastLineBreak(next_line_break, str_graph, next_location_of_line_break, next_vertical_location);
+        if(location_of_line_break+1+horizontal_location>=next_location_of_line_break && location_of_line_break!=next_location_of_line_break && next_location_of_line_break!=0) {
+            string temp_str = str_graph.substr(0, next_location_of_line_break);
+            while(temp_str.length()<horizontal_location+1+location_of_line_break){
+                temp_str+=" ";
+            }
+            str_graph = temp_str+str_graph.substr(next_location_of_line_break, str_graph.length());
+        }
         str_graph.insert(location_of_line_break+1+horizontal_location,string(1,letter));
     }
     return str_graph;
