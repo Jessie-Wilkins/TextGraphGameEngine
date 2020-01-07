@@ -8,6 +8,8 @@ class TGGE_Graphics {
     public:
         string generateLetter(char letter, int horizontal_location, int vertical_location, string present_string);
         string addNewLineAfterSpecifiedLine(int line_number, string present_string);
+        bool ifDifferentLocation(int location_of_line_break, int horizontal_location, int next_location_of_line_break);
+        string changeStringStructure(string str_graph, int location_of_line_break, int next_location_of_line_break, int horizontal_location);
     private:
         string addExtraLines(string str_graph, int vertical_location);
         string addExtraSpaces(string str_graph, int horizontal_location);

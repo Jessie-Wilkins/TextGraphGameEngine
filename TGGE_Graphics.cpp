@@ -76,12 +76,8 @@ string TGGE_Graphics::insertCharactersIntoString(int j, string str_graph, int lo
         int next_vertical_location = vertical_location+1;
         int next_location_of_line_break = 0;
         next_location_of_line_break = findLocationOfLastLineBreak(next_line_break, str_graph, next_location_of_line_break, next_vertical_location);
-        if(location_of_line_break+1+horizontal_location>=next_location_of_line_break && location_of_line_break!=next_location_of_line_break && next_location_of_line_break!=0) {
-            string temp_str = str_graph.substr(0, next_location_of_line_break);
-            while(temp_str.length()<horizontal_location+1+location_of_line_break){
-                temp_str+=" ";
-            }
-            str_graph = temp_str+str_graph.substr(next_location_of_line_break, str_graph.length());
+        if(ifDifferentLocation(location_of_line_break, horizontal_location, next_location_of_line_break)) {
+            str_graph = changeStringStructure(str_graph, location_of_line_break, next_location_of_line_break, horizontal_location);
         }
         str_graph.insert(location_of_line_break+1+horizontal_location,string(1,letter));
     }
@@ -95,7 +91,7 @@ string TGGE_Graphics::adjustCurrentStringGraphics(string str_graph, int location
             str_graph = insertCharactersIntoString(j, str_graph, location_of_line_break, vertical_location, horizontal_location, letter);
     }
     else {
-        str_graph.insert(horizontal_location+vertical_location,"b");
+        str_graph.insert(horizontal_location+vertical_location, string(1,letter));
     }
     return str_graph;
 }
@@ -107,3 +103,16 @@ string TGGE_Graphics::addNewStringGraphics(string str_graph, int vertical_locati
 
         return str_graph+letter;
 }
+
+bool TGGE_Graphics::ifDifferentLocation(int location_of_line_break, int horizontal_location, int next_location_of_line_break) {
+    return location_of_line_break+1+horizontal_location>=next_location_of_line_break && location_of_line_break!=next_location_of_line_break && next_location_of_line_break!=0;
+}
+
+string TGGE_Graphics::changeStringStructure(string str_graph, int location_of_line_break, int next_location_of_line_break, int horizontal_location) {
+    string temp_str = str_graph.substr(0, next_location_of_line_break);
+    while(temp_str.length()<horizontal_location+1+location_of_line_break){
+        temp_str+=" ";
+    }
+    return temp_str+str_graph.substr(next_location_of_line_break, str_graph.length());
+}
+
