@@ -68,7 +68,7 @@ TEST_CASE("TGGE_Graphics_Test") {
     }
 
     SECTION("Test If A Third Line Can Be Inserted In Between the Existing Lines") {
-       str_print = graph.generateLetter('a', 4, 1, "");
+        str_print = graph.generateLetter('a', 4, 1, "");
         
         str_print = graph.generateLetter('b', 5, 1, str_print);
 
@@ -85,6 +85,32 @@ TEST_CASE("TGGE_Graphics_Test") {
         str_print = graph.generateLetter('g', 2, 2, str_print);
 
         REQUIRE(str_print=="\n  b  ab\nd g\n  c  b");
+    }
+
+    SECTION("Test If A Line with characters Can Be Inserted Before the First Line") {
+        str_print = graph.generateLetter('a', 4, 1, "");
+        
+        str_print = graph.generateLetter('b', 5, 1, str_print);
+
+        str_print = graph.generateLetter('b', 4, 2, str_print);
+
+        str_print = graph.generateLetter('b', 2, 1, str_print);
+
+        str_print = graph.generateLetter('c', 2, 2, str_print);
+
+        str_print = graph.addNewLineAfterSpecifiedLine(2, str_print);
+
+        str_print = graph.generateLetter('d', 0, 2, str_print);
+
+        str_print = graph.generateLetter('g', 2, 2, str_print);
+
+        str_print = graph.addNewLineToBeginning(str_print);
+
+        str_print = graph.generateLetter('t', 3, 0, str_print);
+
+        str_print = graph.generateLetter('v', 8, 0, str_print);
+
+        REQUIRE(str_print=="   t    v\n\n  b  ab\nd g\n  c  b");
     }
 
 }

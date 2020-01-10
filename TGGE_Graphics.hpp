@@ -10,6 +10,7 @@ class TGGE_Graphics {
         string addNewLineAfterSpecifiedLine(int line_number, string present_string);
         bool ifDifferentLocation(int location_of_line_break, int horizontal_location, int next_location_of_line_break);
         string changeStringStructure(string str_graph, int location_of_line_break, int next_location_of_line_break, int horizontal_location);
+        string addNewLineToBeginning(string str_print);
     private:
         string addExtraLines(string str_graph, int vertical_location);
         string addExtraSpaces(string str_graph, int horizontal_location);

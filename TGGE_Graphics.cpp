@@ -58,6 +58,9 @@ int TGGE_Graphics::findLocationOfLastLineBreak(int& j, string str_graph, int loc
             if (j==vertical_location) {
                 return location_of_line_break;
             }
+            else if (j>vertical_location) {
+                return location_of_line_break;
+            }
         }
     }
 }
@@ -114,5 +117,12 @@ string TGGE_Graphics::changeStringStructure(string str_graph, int location_of_li
         temp_str+=" ";
     }
     return temp_str+str_graph.substr(next_location_of_line_break, str_graph.length());
+}
+
+string TGGE_Graphics::addNewLineToBeginning(string str_print) {
+    string temp_string = str_print;
+    str_print = "\n";
+    str_print = str_print+temp_string;
+    return str_print;
 }
 
