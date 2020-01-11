@@ -88,14 +88,14 @@ string TGGE_Graphics::insertCharactersIntoString(int j, string str_graph, int lo
 }
 
 string TGGE_Graphics::adjustCurrentStringGraphics(string str_graph, int location_of_line_break, int vertical_location, int horizontal_location, char letter) {
-    if(vertical_location == 2) {
+    //if(vertical_location == 2) {
             int j = 0;
             location_of_line_break = findLocationOfLastLineBreak(j, str_graph, location_of_line_break, vertical_location);
             str_graph = insertCharactersIntoString(j, str_graph, location_of_line_break, vertical_location, horizontal_location, letter);
-    }
-    else {
-        str_graph.insert(horizontal_location+vertical_location, string(1,letter));
-    }
+    //}
+    /*else {
+        str_graph.insertCharacters(horizontal_location+vertical_location, string(1,letter));
+    }*/
     return str_graph;
 }
 
