@@ -67,13 +67,27 @@ int TGGE_Graphics::findLocationOfLastLineBreak(int& j, string str_graph, int loc
 
 string TGGE_Graphics::insertCharactersIntoString(int j, string str_graph, int location_of_line_break, int vertical_location, int horizontal_location, char letter) {
     if(vertical_location == 0) {
-        string temp_string = str_graph;
-        str_graph="";
-        for(int i = 0; i<horizontal_location; i++) {
-            str_graph += " ";
+        if(location_of_line_break == 0) {
+            string temp_string = str_graph;
+
+            str_graph="";
+
+            for(int i = 0; i<horizontal_location; i++) {
+                str_graph += " ";
+            }
+            str_graph = str_graph+temp_string;
         }
-        str_graph = str_graph+temp_string;
-        str_graph.insert(1+horizontal_location,string(1,letter));
+        else {
+            string tempString1 = str_graph.substr(0, location_of_line_break);
+            string tempString2 = str_graph.substr(location_of_line_break, str_graph.size());
+            while(tempString1.size() < horizontal_location) {
+                tempString1+=" ";
+            }
+            str_graph = tempString1+tempString2;
+        }
+
+        str_graph.insert(horizontal_location,string(1,letter));
+        
     }
     
     else if(j!=vertical_location) {
@@ -123,7 +137,6 @@ bool TGGE_Graphics::ifDifferentLocation(int location_of_line_break, int horizont
 
 string TGGE_Graphics::changeStringStructure(string str_graph, int location_of_line_break, int next_location_of_line_break, int horizontal_location) {
     string temp_str = str_graph.substr(0, next_location_of_line_break);
-    cout<<temp_str<<endl;
     while(temp_str.length()<horizontal_location+1+location_of_line_break){
         temp_str+=" ";
     }
