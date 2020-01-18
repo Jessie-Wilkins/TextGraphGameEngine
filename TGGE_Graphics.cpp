@@ -153,3 +153,7 @@ string TGGE_Graphics::addCharacterBetweenFirstAndLastLine(string str_graph, int 
     return str_graph;
 }
 
+string TGGE_Graphics::moveLetterByReference(string char_reference, int horizontal_location, int vertical_location, string str_print) {
+    
+    return "";
+}

@@ -9,6 +9,7 @@ class TGGE_Graphics {
         string generateLetter(char letter, int horizontal_location, int vertical_location, string present_string);
         string addNewLineAfterSpecifiedLine(int line_number, string present_string);
         string addNewLineToBeginning(string str_print);
+        string moveLetterByReference(string char_reference, int horizontal_location, int vertical_location, string str_print);
         
     private:
         string addExtraLines(string str_graph, int vertical_location);
