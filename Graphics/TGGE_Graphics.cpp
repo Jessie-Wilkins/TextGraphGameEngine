@@ -60,6 +60,7 @@ int TGGE_Graphics::findLocationOfLastLineBreak(int& j, string str_graph, int loc
             }
         }
     }
+    return 0;
 }
 
 string TGGE_Graphics::insertCharactersIntoString(int j, string str_graph, int location_of_line_break, int vertical_location, int horizontal_location, char letter) {

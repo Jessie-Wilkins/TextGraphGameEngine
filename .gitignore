@@ -1,2 +1,4 @@
 #Ignore Visual Studio Code related folder
 .vscode/
+*.o
+*.out

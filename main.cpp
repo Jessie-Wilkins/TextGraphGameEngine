@@ -9,7 +9,7 @@
 
 #define CATCH_CONFIG_RUNNER
 #include <iostream>
-#include "TGGE_Graphics.hpp"
+#include "Graphics/TGGE_Graphics.hpp"
 #include "catch.hpp"
 using namespace std;
 
