@@ -154,6 +154,27 @@ string TGGE_Graphics::addCharacterBetweenFirstAndLastLine(string str_graph, int 
 }
 
 string TGGE_Graphics::moveLetterByReference(string char_reference, int horizontal_location, int vertical_location, string str_print) {
-    
-    return "";
+    char existing_character = char_reference.at(0);
+    int occurance_number = char_reference.at(1)-'0';
+    occurance_number = occurance_number+1;
+    int current_char_occurance = 0;
+    int character_location = 0;
+
+    for(int i=0; i<str_print.length(); i++) {
+        if(str_print.at(i) == existing_character) {
+            current_char_occurance++;
+            if(current_char_occurance == occurance_number) {
+                character_location = i;
+                break;
+            }
+        }
+    }
+
+    string new_str_print = generateLetter(existing_character, horizontal_location, vertical_location, str_print);
+
+    new_str_print = new_str_print.erase(character_location+1, 1);
+
+    new_str_print = new_str_print.insert(character_location+1, " ");
+
+    return new_str_print;
 }

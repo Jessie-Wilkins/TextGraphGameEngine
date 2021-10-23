@@ -113,7 +113,7 @@ TEST_CASE("TGGE_Graphics_Test") {
         REQUIRE(str_print=="   t    v\n\n  b  ab\nd g\n  c  b");
     }
 
-    SECTION("Test If A Character Can Be Moved By Reference") {
+    SECTION("Test If A Character Can Be Moved By Reference Horizontally") {
         str_print = graph.generateLetter('a', 4, 1, "");
         
         str_print = graph.generateLetter('b', 5, 1, str_print);
@@ -136,7 +136,7 @@ TEST_CASE("TGGE_Graphics_Test") {
 
         str_print = graph.generateLetter('v', 8, 0, str_print);
 
-        str_print = graph.moveLetterByReference("b1", 0, 1, str_print);
+        str_print = graph.moveLetterByReference("b1", 0, 2, str_print);
 
         REQUIRE(str_print=="   t    v\n\nb  b  a \nd g\n  c  b");
     }
